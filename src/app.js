@@ -5,6 +5,7 @@ const forecast = require('./utils/retrieveForecast')
 const coordinates = require('./utils/retrieveCoordinates')
 
 const app = express()
+const port = process.env.PORT || 3000
 
 // Define paths for Express config
 const publicDirectoryPath = path.join(__dirname, '../public')
@@ -92,8 +93,9 @@ app.get('*', (req, res) => {
     })
 })
 
-const url = 'http://localhost:3000'
+const url = 'http://localhost:' + port
 
-app.listen(3000, () => {
-    console.log('Server is up on port 3000 at the following address: ', url)
+
+app.listen(port, () => {
+    console.log('Server is up on port ' + port + ' at the following address: ', url)
 })
