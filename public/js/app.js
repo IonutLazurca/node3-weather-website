@@ -14,8 +14,7 @@ weatherForm.addEventListener('submit', (e) => {
     messageThree.textContent = 'Loading weather forecast ...'
        
     fetch('/weather?search=' + search.value).then((response) => {
-    response.json().then((data) => {
-        // console.log(data.forecast)
+    response.json().then((data) => {        
         if(data.error) {
             messageOne.textContent = data.error
            
@@ -23,8 +22,7 @@ weatherForm.addEventListener('submit', (e) => {
             messageOne.textContent = data.location.name
             messageTwo.textContent = data.forecast.temperature
             var text = ''
-            for(x in data.forecast) {
-                console.log(x)
+            for(x in data.forecast) {                
                 text += x + ': ' + data.forecast[x] + ', '
             }
             messageThree.textContent = text

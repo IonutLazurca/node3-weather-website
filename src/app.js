@@ -47,8 +47,7 @@ app.get('/weather', (req, res) => {
         return res.send({
             error: 'Please provide a search term'
         })
-    }
-    // console.log(req.query.search)
+    }   
     coordinates.retrieveCoordinates(req.query.search, (error, {latitude, longitude, place} = {}) => {
         if (error) {
             console.log(error)
@@ -67,11 +66,9 @@ app.get('/weather', (req, res) => {
             }
             console.log(text)
 
-            var myArray = Object.values(forecast)
-            console.log(myArray)
+            var myArray = Object.values(forecast)            
 
-            var myString = JSON.stringify(forecast)
-            console.log(myString)
+            var myString = JSON.stringify(forecast)            
 
         })
     })    

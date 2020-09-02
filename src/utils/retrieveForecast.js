@@ -10,10 +10,11 @@ const retrieveForecast = (latitude, longitude, callback ) => {
             callback('Unable to connect to weather service', undefined)
         } else if (body.error) {
             callback('Unable to find location', undefined)
-        } else {           
+        } else { 
+            console.log(body)          
             callback(undefined, {
                 location: body.location,
-                forecast: body.current               
+                forecast: body.current,
             })      
         }
     })
